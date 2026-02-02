@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 248, 250, 252;
+  --background-start-rgb: 3, 7, 18;
+  --background-end-rgb: 3, 7, 18;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: black;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-surface/30 backdrop-blur-md border border-white/5 shadow-2xl;
+  }
+
+  .glass-input {
+    @apply bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-primary/50 focus:ring-primary/20 transition-all duration-300;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  }
+
+  /* Elite onboarding: high-end serif for headings */
+  .font-elite-serif {
+    font-family: var(--font-playfair), ui-serif, Georgia, serif;
+  }
+
+  /* Glass button with shimmer (onboarding Next Step) */
+  .btn-glass-shimmer {
+    position: relative;
+    overflow: hidden;
+    background: rgba(239, 68, 68, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.2);
+  }
+  .btn-glass-shimmer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+  }
+}
+
+/* Animated Mesh Gradient Background */
+.bg-mesh-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(220, 38, 38, 0.15), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(239, 68, 68, 0.10), transparent 25%);
+  filter: blur(40px);
+  animation: bg-pulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes bg-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+}
