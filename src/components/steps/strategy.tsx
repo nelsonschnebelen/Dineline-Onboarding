@@ -2,9 +2,8 @@
 
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label"; // Check if Label exists, if not I'll inline styles
 
-// Fallback label if component doesn't exist
+// Fallback label (no ui/label component in project)
 function FieldLabel({ children, className }: { children: React.ReactNode, className?: string }) {
     return <label className={`text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-200 ${className}`}>{children}</label>;
 }
