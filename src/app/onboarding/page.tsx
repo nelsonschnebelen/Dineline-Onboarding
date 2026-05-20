@@ -1,12 +1,13 @@
+"use client";
+
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import OnboardingWizard from "@/components/onboarding-wizard";
 import { Particles } from "@/components/ui/particles";
 
-export default function OnboardingPage({
-    searchParams,
-}: {
-    searchParams: { [key: string]: string | string[] | undefined };
-}) {
-    const restaurantName = typeof searchParams.name === 'string' ? searchParams.name : "Restaurant";
+function OnboardingContent() {
+    const searchParams = useSearchParams();
+    const restaurantName = searchParams.get("name") || "Restaurant";
 
     return (
         <main className="relative min-h-screen flex flex-col p-4 md:p-8 overflow-hidden bg-black selection:bg-primary/30">
@@ -30,5 +31,13 @@ export default function OnboardingPage({
                 <OnboardingWizard restaurantName={restaurantName} />
             </div>
         </main>
+    );
+}
+
+export default function OnboardingPage() {
+    return (
+        <Suspense>
+            <OnboardingContent />
+        </Suspense>
     );
 }
