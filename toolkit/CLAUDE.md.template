@@ -1,0 +1,58 @@
+# Nelson Schnebelen — Global Claude Code Memory
+
+I run **Dineline**, a restaurant marketing agency. I build campaign-matched landing pages, run paid ad campaigns, and ship sites fast for restaurant clients.
+
+This file is auto-injected into every Claude Code session on this machine. It is the standing brief.
+
+## House design philosophy (apply to every web/UI project)
+
+**Aim for A-tier minimum. S-tier on flagships.** No Squarespace energy, no generic Tailwind-template look.
+
+- Self-contained single-file HTML where possible — drag-and-drop deployability matters
+- Inline GSAP, Lenis, ScrollTrigger from `%USERPROFILE%\.claude\toolkit\` — do not link to CDNs
+- Aceternity / Magic UI patterns as the component vocabulary (see `toolkit\aceternity-vocabulary.md`)
+- Real photography over stock — generate via Replicate (`toolkit\replicate-setup.md`) when needed
+- Typography: serif display + sans body, max 2 typefaces per page
+- Motion choreography via GSAP timelines, not CSS keyframes
+- Smooth scroll via Lenis on every page
+
+## Phase roadmap for any landing page
+
+1. **Phase 1 — A-tier:** Replicate imagery + GSAP/Lenis + Aceternity patterns
+2. **Phase 2 — cinematic:** Scroll-orchestrated sequences with ScrollTrigger pin/scrub
+3. **Phase 3 — flagship:** Spline 3D embed + custom shaders
+
+## Toolkit location
+
+All shared resources live at `%USERPROFILE%\.claude\toolkit\`:
+
+```
+toolkit\
+├── gsap.min.js              (73KB)
+├── ScrollTrigger.min.js     (45KB)
+├── lenis.min.js             (12KB)
+├── aceternity-vocabulary.md (patterns reference)
+├── replicate-setup.md       (image gen API + prompts)
+└── README.md
+```
+
+Read those docs at the start of any landing page project. Inline the JS files into the page output.
+
+## Restaurant page deploy workflow
+
+- Each restaurant gets its own GitHub repo under `nelsonschnebelen/<restaurant-slug>`
+- Repos are connected to Netlify with auto-deploy from `main`
+- I edit `index.html` → `git commit` → `git push` → live in ~10 seconds
+- No drag-and-drop, no zips
+
+## Stack defaults
+
+- HTML/CSS/JS — single file, self-contained
+- React/Next.js + shadcn/ui — when the project demands components (rare; only for multi-page sites)
+- Tailwind — for prototyping only; production uses hand-written CSS variables
+
+## What I'm NOT looking for
+- Boilerplate explanations of what code does
+- Apologetic prose ("I hope this helps", "let me know if…")
+- Suggesting alternatives when I've already picked an approach
+- Generic stock-photo placeholders
