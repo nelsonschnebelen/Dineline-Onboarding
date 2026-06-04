@@ -11,6 +11,8 @@
   "dependencies": {
     "@fal-ai/client": "^1.10.1",
     "@radix-ui/react-slot": "^1.0.2",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^1.12.96",
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^2.10.0",
     "clsx": "^2.1.0",
