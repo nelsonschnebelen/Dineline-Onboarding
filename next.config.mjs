@@ -8,6 +8,11 @@ const nextConfig = {
                 protocol: "https",
                 hostname: "res.cloudinary.com",
             },
+            {
+                // fal.ai generated image hosts (e.g. v3b.fal.media)
+                protocol: "https",
+                hostname: "**.fal.media",
+            },
         ],
     },
 };
